@@ -66,8 +66,28 @@ API key 不得出现在聊天、objective、episode、result 或日志中。认�
 
 对接团队拿到仓库后，可按以下顺序验收：
 
-1. `pip install -e '.[dev]'`，运行 `pytest -q`；预期所有测试通过。
+1. `pip install -e '.[dev,docking]'`，运行 `pytest -q`；预期所有测试通过。
 2. 运行 `python scripts/check_environment.py`；记录 Python、PyMOL、Vina、arkcli 版本。
+
+## 本机依赖与联调工具
+
+Controller 侧建议使用 Python 3.10+、RDKit、Pydantic、PyYAML、NumPy、PoseBusters、Meeko 和 Gemmi。
+Phase B 还需要 Open Babel（命令 `obabel`）或 Meeko 的 `mk_prepare_*` 工具，将 PDB/SDF 转为
+Vina 所需的 PDBQT；禁止用文本拼接伪造 PDBQT。Vina 1.1.2 与 PyMOL 必须在联调 desktop
+中可执行。仓库提供 `scripts/prepare_pdbqt.py` 作为 Meeko 包装器，Open Babel 可作为人工
+或 desktop-side fallback。
+
+本机已验证的安装位置：
+
+```text
+PyMOL: /Users/judy/project/miniconda3/bin/pymol
+Vina:  /Users/judy/project/autodock_vina_1_1_2/bin/vina
+Open Babel: /Users/judy/project/miniconda3/bin/obabel
+```
+
+联调顺序：先运行 `python scripts/check_environment.py`，再用 `data/public/dev` 的一个
+episode 准备 PDBQT，确认 Vina 输出和 PyMOL 可加载；最后才启动 Ark CUA。CUA workspace
+只能挂载 `data/public` 和 episode 输出目录，不能挂载 `data/private`。
 3. 使用 `scripts/build_episodes.py` 生成 `DEMO_0001`，用 `scripts/run_episode.py` 做 offline smoke。
 4. 用 `scripts/evaluate_episode.py` 评估 demo submission；正确的 demo label 应得到 interface F1 1.0、task success true。
 5. 在 CUA desktop 上依次运行 `health`、`diagnosis_easy`、`diagnosis_invalid`、`needs_input`，每个 case 创建新 task。

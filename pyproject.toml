@@ -10,6 +10,7 @@ dependencies = ["pydantic>=2", "PyYAML>=6", "numpy>=1.23"]
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "ruff>=0.6", "scipy>=1.10", "pandas>=2"]
+docking = ["rdkit>=2023.9", "meeko>=0.8", "gemmi>=0.6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

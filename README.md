@@ -10,7 +10,7 @@ backend until Phase A is validated.
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
-pip install -e '.[dev]'
+pip install -e '.[dev,docking]'
 pytest
 ruff check .
 python scripts/check_environment.py
@@ -77,7 +77,7 @@ evaluator，再把同一个 episode 交给 CUA。所有命令均在仓库根目�
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -e '.[dev]'
+pip install -e '.[dev,docking]'
 python scripts/check_environment.py
 pytest -q
 ```
