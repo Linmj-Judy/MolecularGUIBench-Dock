@@ -17,9 +17,10 @@
 - Model/version: read-only `model get` and record metadata per run.
 
 - Current auth probe (2026-09-20): `auth status` reports a logged-in protected
-  credential cache with `desktop_bound=false`. No credential value is stored by
-  or exposed through this repository; a bound desktop is still required for a
-  real episode.
+  credential cache. `desktop list` reports the caller-owned desktop
+  `desk-292ef060afb933b2` as running and ready. A real Phase A task was started,
+  but remains `needs_input` because the desktop workspace does not contain the
+  public Astex episode; no private/native data was exposed.
 
 The adapter intentionally reports a clear setup error when the official CLI is
 unavailable rather than guessing an HTTP API.
