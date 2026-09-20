@@ -31,7 +31,8 @@ python scripts/prepare_data.py \
   --output data/raw/posebusters/posebusters_paper_data.zip
 python scripts/prepare_posebusters.py \
   data/raw/posebusters/posebusters_paper_data.zip \
-  data/raw/posebusters/extracted
+  data/raw/posebusters/extracted \
+  --skip-md5
 ```
 
 The archive is raw source material. A later curation step creates anonymized
