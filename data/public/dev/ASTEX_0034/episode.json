@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ASTEX_0034",
+  "target_id": "ASTEX_0034",
+  "split": "dev",
+  "task": "diagnosis",
+  "track": "vision_only",
+  "receptor_path": "data/public/dev/ASTEX_0034/receptor.pdb",
+  "ligand_path": "data/public/dev/ASTEX_0034/ligand.sdf",
+  "objective": "Inspect the protein-ligand pose and identify the interface."
+}
