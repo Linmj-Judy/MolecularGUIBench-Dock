@@ -3,9 +3,11 @@ from __future__ import annotations
 import hashlib, json, zipfile
 from pathlib import Path
 
-POSEBUSTERS_MD5 = "f004ac7c4e68317b5348497d2bb6bee6"
+POSEBUSTERS_MD5 = "f004ac7c4e68317b5348497d2bb6bee6"  # legacy release checksum
 
-def verify_md5(path: str | Path, expected: str = POSEBUSTERS_MD5) -> bool:
+def verify_md5(path: str | Path, expected: str | None = None) -> bool:
+    if expected is None:
+        raise ValueError("an explicit checksum is required; pass the published release MD5")
     h = hashlib.md5()
     with Path(path).open("rb") as f:
         for chunk in iter(lambda: f.read(1024 * 1024), b""): h.update(chunk)
