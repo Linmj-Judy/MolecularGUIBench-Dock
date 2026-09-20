@@ -88,6 +88,10 @@ Open Babel: /Users/judy/project/miniconda3/bin/obabel
 联调顺序：先运行 `python scripts/check_environment.py`，再用 `data/public/dev` 的一个
 episode 准备 PDBQT，确认 Vina 输出和 PyMOL 可加载；最后才启动 Ark CUA。CUA workspace
 只能挂载 `data/public` 和 episode 输出目录，不能挂载 `data/private`。
+
+PoseBusters test selection 使用 `scripts/select_posebusters_test.py` 生成确定性 308-case
+索引。该索引及 native/ground-truth 文件必须放在 `data/private/test` 或外部受控存储，
+不能提交到仓库或复制到 CUA workspace。
 3. 使用 `scripts/build_episodes.py` 生成 `DEMO_0001`，用 `scripts/run_episode.py` 做 offline smoke。
 4. 用 `scripts/evaluate_episode.py` 评估 demo submission；正确的 demo label 应得到 interface F1 1.0、task success true。
 5. 在 CUA desktop 上依次运行 `health`、`diagnosis_easy`、`diagnosis_invalid`、`needs_input`，每个 case 创建新 task。
