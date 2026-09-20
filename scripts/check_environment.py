@@ -8,10 +8,14 @@ from pathlib import Path
 
 def main():
     skill = Path(__file__).resolve().parents[1] / ".agents/skills/byted-util-ark-cua"
+    vina_candidates = [shutil.which("vina"), "/Users/judy/project/autodock_vina_1_1_2/bin/vina"]
+    pymol_candidates = [shutil.which("pymol"), "/Users/judy/project/miniconda3/bin/pymol"]
     checks = {
         "python": sys.version.split()[0],
-        "pymol": bool(shutil.which("pymol")),
-        "vina": bool(shutil.which("vina")),
+        "pymol": any(p and Path(p).is_file() for p in pymol_candidates),
+        "vina": any(p and Path(p).is_file() for p in vina_candidates),
+        "pymol_executable": next((p for p in pymol_candidates if p and Path(p).is_file()), None),
+        "vina_executable": next((p for p in vina_candidates if p and Path(p).is_file()), None),
         "posebusters": bool(shutil.which("bust")),
         "arkcli": bool(shutil.which("arkcli")),
         "rdkit": bool(importlib.util.find_spec("rdkit")),
