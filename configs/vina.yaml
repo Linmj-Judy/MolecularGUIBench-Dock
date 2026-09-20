@@ -1,0 +1,7 @@
+vina:
+  executable: vina
+  exhaustiveness: 16
+  num_modes: 10
+  energy_range: 5
+  cpu: 4
+  seed: 20260920

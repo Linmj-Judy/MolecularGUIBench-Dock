@@ -1,0 +1,7 @@
+pymol:
+  executable: pymol
+  headless: false
+  plugin_dir: pymol_plugin/pymoldockbench
+  default_representation: sticks
+  hide_waters: true
+  camera_seed: 20260920

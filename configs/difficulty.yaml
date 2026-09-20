@@ -1,0 +1,10 @@
+difficulty:
+  easy:
+    interface_cutoff_angstrom: 4.0
+    max_pose_candidates: 3
+  medium:
+    interface_cutoff_angstrom: 4.0
+    max_pose_candidates: 6
+  hard:
+    interface_cutoff_angstrom: 4.0
+    max_pose_candidates: 10
