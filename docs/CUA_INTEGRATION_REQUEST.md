@@ -1,4 +1,4 @@
-# PyMolDock-CUA-Bench CUA 联调需求
+# MolecularGUIBench-Dock CUA 联调需求
 
 版本 0.1.0，Phase A Pose Diagnosis MVP。
 

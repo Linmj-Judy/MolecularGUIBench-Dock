@@ -1,4 +1,4 @@
-# 任务：实现 PyMolDock-CUA-Bench
+# 任务：实现 MolecularGUIBench-Dock
 
 你现在负责从零实现一个**可运行、可复现、可自动评分的 Scientific Computer-Use Agent Benchmark**。
 

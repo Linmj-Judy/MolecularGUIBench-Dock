@@ -1,4 +1,4 @@
-# PyMolDock-CUA-Bench
+# MolecularGUIBench-Dock
 
 An offline-first benchmark for PyMOL protein–ligand pose diagnosis and interface
 reasoning. Phase A provides schemas, leakage-safe data boundaries, deterministic

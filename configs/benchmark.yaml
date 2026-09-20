@@ -1,5 +1,5 @@
 benchmark:
-  name: PyMolDock-CUA-Bench
+  name: MolecularGUIBench-Dock
   schema_version: "1.0"
 dataset:
   dev: astex
