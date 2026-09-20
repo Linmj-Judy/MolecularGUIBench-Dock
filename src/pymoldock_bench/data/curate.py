@@ -10,7 +10,9 @@ from .anonymize import anonymize_pdb, anonymize_sdf
 
 def _first(root: Path, names: tuple[str, ...]) -> Path | None:
     for p in sorted(root.rglob("*")):
-        if p.is_file() and p.name.lower() in names: return p
+        lower=p.name.lower()
+        if p.is_file() and (lower in names or any(lower.endswith("_" + name) for name in names)):
+            return p
     return None
 
 def curate_case(case_root: str | Path, public_root: str | Path, *, episode_id: str, target_id: str) -> Path:
