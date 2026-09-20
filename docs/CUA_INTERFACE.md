@@ -24,3 +24,21 @@
 
 The adapter intentionally reports a clear setup error when the official CLI is
 unavailable rather than guessing an HTTP API.
+
+## Local-file transfer boundary
+
+The installed Personal CUA skill exposes `artifact list/save` for downloading
+registered task artifacts from the desktop to the local machine. It does not
+expose a general-purpose local-file upload or desktop mount command. The
+`credentials sync file` command is for managed credential-file profiles, not
+arbitrary benchmark inputs.
+
+For this benchmark, public inputs should therefore be fetched by the CUA task
+from a public URL, or provisioned through an explicitly supported desktop
+workspace. Do not put private/native files in a task objective or encode them
+as base64 text.
+
+ArkClaw documents a separate file-transfer feature backed by a user-owned TOS
+bucket; that product path must not be assumed to be available through the
+Personal CUA CLI used here. See the official ArkClaw release note:
+https://www.volcengine.com/docs/87732/2371424?lang=zh
