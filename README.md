@@ -16,6 +16,34 @@ ruff check .
 python scripts/check_environment.py
 ```
 
+The local evaluator expects Python 3.10+ plus RDKit and PoseBusters. Real
+redocking additionally needs the `pymol` and `vina` executables discoverable
+on `PATH` (for example, activate the Conda environment that contains them
+before running the commands above). The environment check reports each tool
+independently; a Python package install alone does not make a command-line
+executable discoverable.
+
+### Ark CUA setup
+
+Install or update the official CUA capability through ArkCLI, then authenticate
+through the Skill's hidden prompt. Never put an API key in this repository,
+shell history, an objective, or a benchmark log:
+
+```bash
+arkcli --version
+arkcli helper mcp codex --capability cua --help
+python3 .agents/skills/byted-util-ark-cua/scripts/cua.py auth login
+python3 .agents/skills/byted-util-ark-cua/scripts/cua.py auth status
+python3 .agents/skills/byted-util-ark-cua/scripts/cua.py desktop list
+```
+
+`auth status` must report a logged-in credential and a bound desktop before a
+real episode can run. If it reports `AUTH_REQUIRED`, follow the returned
+`setup_command` in a local terminal. If `desktop_bound` is false, select or
+start a desktop using the official Skill commands; the repository never stores
+that credential or guesses a desktop identifier. Use `docs/CUA_INTERFACE.md`
+for the verified task lifecycle and no-human-assistance policy.
+
 Real CUA requires the official skill and protected authentication; see
 `docs/CUA_INTERFACE.md`. Ground truth belongs under `data/private` and is never
 copied into episode objectives or public artifacts.

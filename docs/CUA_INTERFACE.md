@@ -16,9 +16,10 @@
   desktop at a time. Contexts are not reused between episodes.
 - Model/version: read-only `model get` and record metadata per run.
 
-- Current auth probe (2026-09-20): `auth status` reaches the CUA Skill and returns
-  `AUTH_REQUIRED` with `arkcli_status=no_agent_plan_max_profile`; no credential has
-  been entered or stored by this repository.
+- Current auth probe (2026-09-20): `auth status` reports a logged-in protected
+  credential cache with `desktop_bound=false`. No credential value is stored by
+  or exposed through this repository; a bound desktop is still required for a
+  real episode.
 
 The adapter intentionally reports a clear setup error when the official CLI is
 unavailable rather than guessing an HTTP API.
