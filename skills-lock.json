@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "byted-util-ark-cua": {
+      "source": "skills.volces.com",
+      "sourceUrl": "https://skills.volces.com/skills/volcengine/ark",
+      "sourceType": "well-known",
+      "computedHash": "5ec76d14bc8fd387b36f49341dedb88ba6f2f53c1b0638ddf8dab2aae20e20aa",
+      "wellKnownDigest": "sha256:4d3940b3a6ea406784d74d6209f4ecec8cf5c25d2f17db5d0fd57a892e2d28fe"
+    }
+  }
+}

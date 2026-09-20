@@ -1,0 +1,3 @@
+skill_dir: .agents/skills/byted-util-ark-cua
+needs_input_policy: fail
+concurrency_per_desktop: 1

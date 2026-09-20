@@ -1,0 +1,3 @@
+primary_interface_cutoff_angstrom: 4.0
+sensitivity_cutoffs_angstrom: [3.5, 5.0]
+native_rmsd_threshold_angstrom: 2.0

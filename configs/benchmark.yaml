@@ -1,0 +1,24 @@
+benchmark:
+  name: PyMolDock-CUA-Bench
+  schema_version: "1.0"
+dataset:
+  dev: astex
+  test: posebusters
+interface:
+  primary_cutoff_angstrom: 4.0
+  sensitivity_cutoffs: [3.5, 5.0]
+diagnosis:
+  native_rmsd_threshold_angstrom: 2.0
+phase: A
+network_policy: disabled
+runner:
+  poll_interval_sec: 5
+  max_retries: 3
+  concurrency_per_desktop: 1
+seed: 20260920
+vina:
+  exhaustiveness: 16
+  num_modes: 10
+  energy_range: 5
+  seed: 20260920
+  cpu: 4

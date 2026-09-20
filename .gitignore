@@ -1,0 +1,12 @@
+.env
+*.key
+credentials*
+auth.cache
+auth.json
+results/raw/
+data/raw/
+data/private/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+docs/
