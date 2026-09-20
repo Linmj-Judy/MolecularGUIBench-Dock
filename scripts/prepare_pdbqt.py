@@ -18,14 +18,22 @@ def run() -> None:
     ap.add_argument("receptor", type=Path)
     ap.add_argument("ligand", type=Path)
     ap.add_argument("output_dir", type=Path)
+    ap.add_argument("--backend", choices=("meeko", "obabel"), default="obabel")
     args = ap.parse_args()
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    receptor_prefix = args.output_dir / "receptor"
+    ligand_output = args.output_dir / "ligand.pdbqt"
+    if args.backend == "obabel":
+        obabel = shutil.which("obabel")
+        if not obabel:
+            raise SystemExit("Open Babel missing; activate the conda base environment")
+        subprocess.run([obabel, str(args.receptor), "-O", str(receptor_prefix.with_suffix(".pdbqt")), "-xr"], check=True)
+        subprocess.run([obabel, str(args.ligand), "-O", str(ligand_output)], check=True)
+        print(receptor_prefix.with_suffix(".pdbqt")); print(ligand_output); return
     receptor_tool = shutil.which("mk_prepare_receptor.py")
     ligand_tool = shutil.which("mk_prepare_ligand.py")
     if not receptor_tool or not ligand_tool:
         raise SystemExit("Meeko tools missing; install meeko and gemmi first")
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    receptor_prefix = args.output_dir / "receptor"
-    ligand_output = args.output_dir / "ligand.pdbqt"
     with tempfile.TemporaryDirectory() as td:
         # Meeko requires explicit hydrogens for reliable ligand typing.
         prepared_ligand = Path(td) / "ligand.sdf"
